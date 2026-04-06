@@ -1,3 +1,13 @@
+Ordem de desenvolvimento começar com Licenciatura, tentar implementar cadeiras mas é necessário implementar tecnologia e 
+docentes primeiro
+----------------------------------------------------------
 Licenciatura - Funciona como hub para as cadeiras
 nome - nome da Licenciatura
 descricao - descricao da Licenciatura
+--------------------------------------------------------------
+tecnologia - Descreve tecnologias usadas
+nome - nome da tecnologia
+logotipo - icon da tecnologia
+link - link da página para website oficial
+descricao - descreve tecnologia, nivel de complexidade/uso/etc...
+nivel de interesse/preferência !!!EM FALTA!!!
