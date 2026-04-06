@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Licenciatura,Tecnologia,Docente
+from .models import Licenciatura,Tecnologia,Docente,Cadeira
 
 # Register your models here.
 
@@ -21,3 +21,15 @@ class DocenteAdmin(admin.ModelAdmin):
     search_fields = ("nome",)
 
 admin.site.register(Docente,DocenteAdmin)
+
+class CadeiraAdmin(admin.ModelAdmin):
+    list_display = ("nome","ano","descricao","listar_docentes","listar_tecnologias")
+    search_fields = ("nome","ano",)
+
+    def listar_docentes(self, obj):
+        return ", ".join([d.nome for d in obj.docentes.all()])
+
+    def listar_tecnologias(self, obj):
+        return ", ".join([t.nome for t in obj.tecnologias.all()])
+
+admin.site.register(Cadeira,CadeiraAdmin)
