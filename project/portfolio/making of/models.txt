@@ -11,3 +11,7 @@ logotipo - icon da tecnologia
 link - link da página para website oficial
 descricao - descreve tecnologia, nivel de complexidade/uso/etc...
 nivel de interesse/preferência !!!EM FALTA!!!
+-----------------------------------------------------------------
+docente - Docente de cadeiras
+nome - nome de docente
+linkedin - linkedin url se existe

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Licenciatura,Tecnologia
+from .models import Licenciatura,Tecnologia,Docente
 
 # Register your models here.
 
@@ -15,3 +15,9 @@ class TecnologiaAdmin(admin.ModelAdmin):
     search_fields = ("nome",)
 
 admin.site.register(Tecnologia,TecnologiaAdmin)
+
+class DocenteAdmin(admin.ModelAdmin):
+    list_display = ("nome","linkedin")
+    search_fields = ("nome",)
+
+admin.site.register(Docente,DocenteAdmin)
