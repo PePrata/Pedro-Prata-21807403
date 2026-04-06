@@ -1,0 +1,3 @@
+Licenciatura - Funciona como hub para as cadeiras
+nome - nome da Licenciatura
+descricao - descricao da Licenciatura
