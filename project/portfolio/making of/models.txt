@@ -22,3 +22,16 @@ nome - nome do projeto
 descricao - Descrição do projeto
 link - Link para o projeto
 tecnologias - tec usada no desenvolvimento do projeto
+--------------------------------------------------------
+Formacao - 
+nome - nome
+descricao - descricao de formacao
+link - possivel link para pagina de formacao
+tecnologias - tec que faz parte de formacao
+data_conclusao - data para poder ordenar
+
+
+Penssei adicionar certificado em si para comprovar a formacao foi completa, mas removi devido a não saber como fazer o mesmo, 
+pensei adicionar imagem mas não parece correto 
+---------------------------------------------------------
+TFC

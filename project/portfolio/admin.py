@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Licenciatura,Tecnologia,Docente,Cadeira,Projeto
+from .models import Licenciatura,Tecnologia,Docente,Cadeira,Projeto,Formacao
 
 # Register your models here.
 
@@ -43,3 +43,13 @@ class ProjetoAdmin(admin.ModelAdmin):
         return ", ".join([t.nome for t in obj.tecnologias.all()])
 
 admin.site.register(Projeto,ProjetoAdmin)
+
+class FormacaoAdmin(admin.ModelAdmin):
+    list_display = ("nome", "data_conclusao", "listar_tecnologias", "link", "descricao")
+    list_filter = ("tecnologias", "data_conclusao")
+    search_fields = ("nome",)
+
+    def listar_tecnologias(self, obj):
+        return ", ".join([t.nome for t in obj.tecnologias.all()])
+
+admin.site.register(Formacao,FormacaoAdmin)

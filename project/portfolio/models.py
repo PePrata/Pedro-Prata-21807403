@@ -48,3 +48,15 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.nome
+    
+
+class Formacao(models.Model):
+    nome = models.CharField(max_length=255)
+    descricao = models.TextField(blank=True)
+    link = models.CharField(blank=True)
+    data_conclusao = models.DateField()
+
+    tecnologias = models.ManyToManyField(Tecnologia, related_name="formacoes", blank=True)
+
+    def __str__(self):
+        return self.nome
