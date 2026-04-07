@@ -15,3 +15,10 @@ nivel de interesse/preferência !!!EM FALTA!!!
 docente - Docente de cadeiras
 nome - nome de docente
 linkedin - linkedin url se existe
+------------------------------------------------------------
+Projeto - Contem os diferentes projetos desenvolvidos
+Cadeira - Cadeira do projeto 
+nome - nome do projeto
+descricao - Descrição do projeto
+link - Link para o projeto
+tecnologias - tec usada no desenvolvimento do projeto
