@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Licenciatura,Tecnologia,Docente,Cadeira,Projeto,Formacao
+from .models import Licenciatura,Tecnologia,Docente,Cadeira,Projeto,Formacao,TFC
 
 # Register your models here.
 
@@ -53,3 +53,16 @@ class FormacaoAdmin(admin.ModelAdmin):
         return ", ".join([t.nome for t in obj.tecnologias.all()])
 
 admin.site.register(Formacao,FormacaoAdmin)
+
+class TFCAdmin(admin.ModelAdmin):
+    list_display = ("titulo", "licenciatura", "autor", "supervisor", "grau", "ano", "destaque", "listar_areas", "listar_tecnologias")
+    list_filter = ("licenciatura", "grau", "ano", "destaque", "areas", "tecnologias")
+    search_fields = ("titulo", "autor", "supervisor", "resumo", "keywords")
+ 
+    def listar_areas(self, obj):
+        return ", ".join([a.nome for a in obj.areas.all()])
+ 
+    def listar_tecnologias(self, obj):
+        return ", ".join([t.nome for t in obj.tecnologias.all()])
+ 
+admin.site.register(TFC, TFCAdmin)
