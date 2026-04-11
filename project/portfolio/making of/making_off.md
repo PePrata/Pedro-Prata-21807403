@@ -246,5 +246,5 @@ O ficheiro `admin.py` foi configurado para tornar a gestão de conteúdo eficien
 
 ---
 
-## 4. Modelação Final – 
+## 4. Modelação Final – Ver Modelação_final.png
 
