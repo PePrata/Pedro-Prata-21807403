@@ -1,0 +1,24 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>docentes</h2>
+
+<section>
+    {% for docente in docentes %}
+    <article>
+        <header>
+            <h3>{{ docente.nome }}</h3>
+            {% for cadeira in docente.cadeiras.all %}
+                <p>{{ cadeira.nome }}</p> 
+            {% endfor %}
+        </header>
+
+        <section>
+            <p>
+                {{ docente.linkedin }}
+            </p>
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>TFCs</h2>
+
+<section>
+    {% for tfc in tfcs %}
+    <article>
+        <header>
+            <h3>{{ tfc.titulo }}</h3>
+            <p><strong>Autor:</strong> {{ tfc.autor }}</p>
+            <p><strong>Supervisor:</strong> {{ tfc.supervisor }}</p>
+            <p><strong>Grau:</strong> {{ tfc.get_grau_display }}</p>
+            <p><strong>Ano:</strong> {{ tfc.ano }}</p>
+        </header>
+
+        <section>
+            <p>{{ tfc.resumo }}</p>
+
+            <p><strong>Keywords:</strong> {{ tfc.keywords }}</p>
+
+            {% if tfc.link %}
+                <p>Link: <a href="{{ tfc.link }}">{{ tfc.link }}</a></p>
+            {% endif %}
+
+            {% if tfc.download %}
+                <p><a href="{{ tfc.download }}">Download</a></p>
+            {% endif %}
+
+            <p><strong>Destaque:</strong> {{ tfc.get_destaque_display }}</p>
+
+            <p><strong>Tecnologias:</strong>
+                {% for tecnologia in tfc.tecnologias.all %}
+                    {{ tecnologia.nome }}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Nenhuma
+                {% endfor %}
+            </p>
+
+            <p><strong>Áreas:</strong>
+                {% for area in tfc.areas.all %}
+                    {{ area.nome }}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Nenhuma
+                {% endfor %}
+            </p>
+
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

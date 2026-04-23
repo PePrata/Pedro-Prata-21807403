@@ -1,0 +1,25 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>cadeiras</h2>
+
+<section>
+    {% for cadeira in cadeiras %}
+    <article>
+        <header>
+            <h3>{{ cadeira.nome }}</h3>
+            <p>{{ cadeira.ano }}º ano</p>
+            {% for docente in cadeira.docentes.all %}
+                <p>{{ docente.nome }}</p> 
+            {% endfor %}
+        </header>
+
+        <section>
+            <p>
+                {{ cadeira.descricao }}
+            </p>
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>licenciatura</h2>
+
+<section>
+    {% for licenciatura in licenciatura %}
+    <article>
+        <header>
+            <h3>{{ licenciatura.nome }}</h3>
+            {% for cadeira in licenciatura.cadeiras.all %}
+                <p>{{ cadeira.nome }}</p> 
+            {% endfor %}
+        </header>
+
+        <section>
+            <p>
+                {{ licenciatura.descricao }}
+            </p>
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

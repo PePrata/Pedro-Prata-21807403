@@ -1,0 +1,33 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>tecnologias</h2>
+
+<section>
+    {% for tecnologia in tecnologias %}
+    <article>
+        <header>
+            <img src="{'{tecnologia.logotipo}'}" alt="">
+            <h3>{{ tecnologia.nome }}</h3>
+            <p>Website: <a href="{ tecnologia.link }">{{ tecnologia.link }}</a></p>
+        </header>
+
+        <section>
+            <p>
+                {{ tecnologia.descricao }}
+            </p>
+            <a href="{% url 'edita_tecnologia' tecnologia.id %}">
+                <button>Editar informação da Tecnologia</button>
+            </a>
+            <a href="{% url 'apaga_tecnologia' tecnologia.id %}">
+                <button>Apagar Tecnologia</button>
+            </a>
+        </section>
+    </article>
+    {% endfor %}
+
+    <a href="{% url 'novo_tecnologias' %}">
+        <button>Inserir nova Tecnologia</button>
+    </a>
+</section>
+{% endblock %}

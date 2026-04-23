@@ -1,0 +1,18 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>area tematica</h2>
+
+<section>
+    {% for area in area_tematica %}
+    <article>
+        <header>
+            <h3>{{ area.nome }}</h3>
+        </header>
+
+        <section>
+        </section>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

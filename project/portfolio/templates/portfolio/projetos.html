@@ -1,0 +1,35 @@
+{% extends "portfolio/base.html" %}
+    
+{% block content %}
+<h2>projetos</h2>
+
+<section>
+    {% for projeto in projetos %}
+    <article>
+        <header>
+            <h3>{{ projeto.nome }}</h3>
+            <p>Website: <a href="{ projeto.link }">{{ projeto.link }}</a></p>
+            {% for tecnologia in projeto.tecnologias.all %}
+                <p>{{ tecnologia.nome }}</p> 
+            {% endfor %}
+        </header>
+
+        <section>
+            <p>
+                {{ projeto.descricao }}
+            </p>
+            <a href="{% url 'edita_projeto' projeto.id %}">
+                <button>Editar informação do Projeto</button>
+            </a>
+            <a href="{% url 'apaga_projeto' projeto.id %}">
+                <button>Apagar Projeto</button>
+            </a>
+        </section>
+    </article>
+    {% endfor %}
+
+    <a href="{% url 'novo_projeto' %}">
+        <button>Inserir novo Projeto</button>
+    </a>
+</section>
+{% endblock %}
