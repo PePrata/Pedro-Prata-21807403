@@ -15,6 +15,9 @@ urlpatterns = [
     path('cadeiras/', views.cadeiras_view, name="cadeiras"),
     
     path('formacoes/', views.formacoes_view, name="formacoes"),
+    path('formacao/novo', views.novo_formacao_view, name="novo_formacao"),
+    path('formacao/<int:formacao_id>/edita', views.edita_formacao_view, name="edita_formacao"),
+    path('formacao/<int:formacao_id>/apaga', views.apaga_formacao_view, name="apaga_formacao"),
 
     path('area_tematica/', views.areaTematica_view, name="area_tematica"),
 

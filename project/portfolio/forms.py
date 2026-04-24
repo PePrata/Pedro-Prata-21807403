@@ -1,5 +1,5 @@
 from django import forms    # formulários Django
-from .models import Projeto, Tecnologia
+from .models import Projeto, Tecnologia, Formacao
 
 class ProjetoForm(forms.ModelForm):
   class Meta:
@@ -12,3 +12,8 @@ class TecnologiaForm(forms.ModelForm):
     model = Tecnologia        # classe para a qual é o formulário
     fields = '__all__'   # inclui no form todos os campos da classe Tecnologia.
 
+
+class FormacaoForm(forms.ModelForm):
+  class Meta:
+    model = Formacao
+    fields = '__all__'

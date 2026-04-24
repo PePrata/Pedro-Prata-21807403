@@ -18,8 +18,17 @@
             <p>
                 {{ formacao.descricao }}
             </p>
+            <a href="{% url 'edita_formacao' formacao.id %}">
+                <button>Editar informação da Formação</button>
+            </a>
+            <a href="{% url 'apaga_formacao' formacao.id %}">
+                <button>Apagar Formação</button>
+            </a>
         </section>
     </article>
     {% endfor %}
+    <a href="{% url 'novo_formacao' %}">
+        <button>Inserir nova Formação</button>
+    </a>
 </section>
 {% endblock %}

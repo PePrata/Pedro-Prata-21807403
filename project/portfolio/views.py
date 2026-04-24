@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Tecnologia, Projeto, Licenciatura, Docente,Cadeira,Formacao,AreaTematica,TFC
-from .forms import ProjetoForm, TecnologiaForm
+from .forms import ProjetoForm, TecnologiaForm,FormacaoForm
 
 # Create your views here.
 
@@ -19,10 +19,40 @@ def cadeiras_view(request):
 
     return render(request, 'portfolio/cadeiras.html', {'cadeiras': Cadeiras})
 
+
 def formacoes_view(request):
     Formacoes = Formacao.objects.all()
 
     return render(request, 'portfolio/formacoes.html', {'formacoes': Formacoes})
+
+def novo_formacao_view(request):
+    form = FormacaoForm(request.POST or None, request.FILES)  
+    if form.is_valid():
+        form.save()
+        return redirect('formacoes')
+    
+    context = {'form': form}
+    return render(request, 'portfolio/novo_formacao.html', context)
+
+def edita_formacao_view(request, formacao_id):
+    formacao = Formacao.objects.get(id=formacao_id)
+    
+    if request.POST:
+        form = FormacaoForm(request.POST or None, request.FILES, instance=formacao)
+        if form.is_valid():
+            form.save()
+            return redirect('formacoes')
+    else:
+        form = FormacaoForm(instance=formacao)
+        
+    context = {'form': form, 'formacao':formacao}
+    return render(request, 'portfolio/edita_formacao.html', context)
+
+def apaga_formacao_view(request, formacao_id):
+    formacao = Formacao.objects.get(id=formacao_id)
+    formacao.delete()
+    return redirect('formacoes')
+
 
 def areaTematica_view(request):
     areaTematica = AreaTematica.objects.all()
